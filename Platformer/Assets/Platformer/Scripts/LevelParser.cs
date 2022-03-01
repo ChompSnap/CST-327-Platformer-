@@ -9,6 +9,8 @@ public class LevelParser : MonoBehaviour
     public GameObject brickPrefab;
     public GameObject questionBoxPrefab;
     public GameObject stonePrefab;
+    public GameObject waterPrefab;
+    public GameObject goalPrefab;
     public Transform environmentRoot;
     public float offset;
 
@@ -91,6 +93,23 @@ public class LevelParser : MonoBehaviour
                     // Todo - Parent the new GameObject under levelRoot
                     square.transform.parent = environmentRoot;
                 }
+                else if (letter == 'w')
+                {
+                    var square = Instantiate(waterPrefab);
+                    // Todo - Position the new GameObject at the appropriate location by using row and column
+                    square.transform.position = new Vector3(column + 1, row + offset, 0);
+                    // Todo - Parent the new GameObject under levelRoot
+                    square.transform.parent = environmentRoot;
+                }
+                else if (letter == 'g')
+                {
+                    var square = Instantiate(goalPrefab);
+                    // Todo - Position the new GameObject at the appropriate location by using row and column
+                    square.transform.position = new Vector3(column + 1, row + offset, 0);
+                    // Todo - Parent the new GameObject under levelRoot
+                    square.transform.parent = environmentRoot;
+                }
+
 
                 column++;
             }
